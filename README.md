@@ -1,6 +1,24 @@
 # AZ104-ProjectOne
-## AZ-104 aligned project demonstrating private, identity-based access to Azure Blob Storage using Private Endpoints, RBAC, and Azure Bastion
+#### AZ-104 aligned project demonstrating private, identity-based access to Azure Blob Storage using Private Endpoints, RBAC, and Azure Bastion
 
+## Table of Contents
+- [Project Overview](#project-overview)
+- [Objectives](#objectives)
+- [Architecture](#architecture)
+- [Implementation](#implementation)
+  - [1. Storage Account Creation](#1-storage-account-creation)
+  - [2. Blob Container Creation](#2-blob-container-creation)
+  - [3. Virtual Network and Subnet Creation](#3-virtual-network-and-subnet-creation)
+  - [4. Virtual Machine Deployment](#4-virtual-machine-deployment)
+  - [5. Enabling Managed Identity on the VM](#5-enabling-managed-identity-on-the-vm)
+  - [6. Assigning Data-Plane RBAC Permissions](#6-assigning-data-plane-rbac-permissions)
+  - [7. Creating a Private Endpoint](#7-creating-a-private-endpoint)
+  - [8. DNS Zone Integration](#8-dns-zone-integration)
+  - [9. Securing Administrative Access with Azure Bastion](#9-securing-administrative-access-with-azure-bastion)
+  - [10. Validating Access with Managed Identity](#10-validating-access-with-managed-identity)
+  - [11. Testing Uploads](#11-testing-uploads)
+- [Conclusion](#conclusion)
+---
 # Project Overview
 This project demonstrates a method of securely storing and accessing data in Azure without exposing resources to the public internet.
 Access is restricted to trusted workloads inside a virtual network and authenticated using Azure Managed Identity so there is no need for storage keys or SAS tokens. 
@@ -88,6 +106,7 @@ I created an Azure Bastion in its own subnet, 'AzureBastionSubnet', to enable re
 
 ## 10. Validating Access with Managed Identity
 On the VM, I confirmed the blob access works only from inside the private network with the following commands:
+
 ```
 az login --identity
 
