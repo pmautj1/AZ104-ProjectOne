@@ -101,3 +101,12 @@ az storage blob list `
 ### <img width="1425" height="1135" alt="step 19" src="https://github.com/user-attachments/assets/cade3368-bc2b-43f3-a6f5-9f5bd0c939f2" />
 ### <img width="1424" height="1133" alt="step 20" src="https://github.com/user-attachments/assets/790a99e4-f681-450e-a5f2-b736f299e98d" />
 
+## 11. Testing Uploads
+To validate write permissions, I uploaded a test file to the blob container from the VM using managed identity authentication. The upload succeeded from inside the private network and remained inaccessible from public endpoints.
+
+### <img width="1103" height="390" alt="image" src="https://github.com/user-attachments/assets/96ecf2b1-c016-4c4c-aae4-8df2c37e92c3" />
+### <img width="1422" height="643" alt="image" src="https://github.com/user-attachments/assets/9e9ba95c-d33c-4761-8427-99d638d2f842" />
+
+## Conclusion
+
+This is my first project and with it I aim to demonstrate a secure, enterprise-grade approach to accessing Azure Blob Storage using private networking and identity-based authentication. All public access to storage is disabled, and data access is limited to trusted workloads inside a virtual network via Private Endpoint. Authentication is handled through Azure Managed Identity and data-plane RBAC, eliminating the use of storage keys or SAS tokens. Administrative access to compute resources is secured using Azure Bastion, with no public IPs or inbound ports exposed.
